@@ -1,0 +1,33 @@
+<h1>Users List</h1>
+
+<% if @users.empty? %>
+  <b>No users</b>
+<% else %>
+<table class="table">
+  <tr>
+    <th>User id: </th>
+    <th>User Name: </th>
+    <th>User Email: </th>
+    <th>User Phone: </th>
+    <th>User Gender: </th>
+    <th>Delete User: </th>
+    <th>Rating: </th>
+  </tr>
+
+  <% @users.each do |i| %>
+
+  <tr>
+    <td><%= i.id %></td>
+    <td><%= link_to i.username, user_path(i) %></td>
+    <td><%= i.email %></td>
+    <td><%= i.phone %></td>
+    <td><%= i.gender %></td>
+    <td><%= link_to "Delete user", i, method: :delete, data:{confirm: "Do you want realy delete this user?" } %></td>
+    <td>Rating: <%= i.votes_count %>, <%= link_to "+", upvote_user_path(i) %> </td>
+  </tr>
+
+      <% end %>
+
+</table>
+
+<%end %>

@@ -1,0 +1,15 @@
+<h1>PROFILE</h1>
+
+<ul>
+  <li><%= @user.username %></li>
+  <br>
+  <li><%= @user.email %></li>
+  <br>
+  <li><%= @user.gender %></li>
+  <br>
+  <li><%= @user.phone %></li>
+
+</ul>
+<label>My Avatar</label>
+
+<%= image_tag @user.image.url(:medium) %>

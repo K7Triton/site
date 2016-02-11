@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Site</title>
+  <%= stylesheet_link_tag "application", media: "all",
+                          "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "sample app", '/', id: "logo" %>
+      <div class="top_buttons">
+      <nav>
+        <ul class="nav pull-right">
+          <% if current_user  %>
+              <a href="/" class="btn btn-primary" role="button">Home</a>
+              <%= link_to edit_user_path(current_user), method: :get do %> <span class="btn btn-primary">Edit profile</span>
+                  <% end %>
+              <a href="/logout" class="btn btn-primary" role="button">Logout</a>
+          <% else %>
+              <a href="/" class="btn btn-primary" role="button">Home</a>
+              <a href="#" class="btn btn-primary" role="button">Help</a>
+              <a href="/login" class="btn btn-primary" role="button">Sign in</a>
+          <% end %>
+        </ul>
+      </nav>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container">
+  <%= yield %>
+</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<div class="center hero-unit">
+  <h1>Welcome to the Social Network</h1>
+
+  <h2>
+    This is social site
+  </h2>
+
+  <% if current_user %>
+  <%= link_to "Find people!", 'users/', class: "btn btn-large btn-primary" %>
+  <% else %>
+  <%= link_to "Sign up now!", 'users/new', class: "btn btn-large btn-primary" %>
+  <% end %>
+</div>
+
+
