@@ -1,0 +1,23 @@
+<div class="chat-window-scroll">
+<% if @allmessages.each do |new| %>
+<div class="chat-window" data-spy="affix-top">
+<div class="alert alert-info" role="alert"><%=new.user_id %> : <%= new.text %></div>
+</div>
+<% end %>
+<% end %>
+</div>
+<%= form_for(:message, url: messages_path(:friend_id => @friend_id), method: 'post') do |f| %>
+
+<div class="chat-window-area">
+  <%= f.text_area :text, class: "form-control" %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :friend_id, value: @friend_id %>
+  <div class="chat-window-button">
+    <%= f.submit value='Send', class: "btn btn-lg btn-primary" %>
+  </div>
+</div>
+<% end %>
+
+
+
+

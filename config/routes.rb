@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
 
   resources :friendships
+  resources :messages
 
   get '/login' => 'sessions#new'
   post 'login' => 'sessions#create'

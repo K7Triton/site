@@ -19,7 +19,6 @@
       <nav>
         <ul class="nav pull-right">
           <% if current_user  %>
-              <%= link_to "Go to chat", '/users', class: "btn btn-large btn-primary" %>
               <%= link_to "Find people", '/users', class: "btn btn-large btn-primary" %>
               <a href="/friendships/show" class="btn btn-primary" role="button">Friends</a>
               <%= link_to edit_user_path(current_user), method: :get do %> <span class="btn btn-primary">Edit profile</span>

@@ -1,12 +1,15 @@
 class User < ActiveRecord::Base
 
+
   before_save { self.email = email.downcase }
+
+  GENDER_TYPES = ["Male", "Female"]
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :username, presence: true, length: {maximum: 50, minimum: 2}
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: {case_sensitive: false}
-  validates :phone, presence: true
+  validates :phone, presence: true, :numericality => true, :length => { :minimum => 10, :maximum => 15 }
   validates :gender, presence: true
   validates :password, presence: true
 

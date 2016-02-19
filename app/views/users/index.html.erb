@@ -19,13 +19,13 @@
 
   <tr>
     <td><%= i.id %></td>
-    <td><%= link_to i.username, user_path(i) %></td>
+    <td><%= link_to i.username, user_path(i)  %></td>
     <td><%= i.email %></td>
     <td><%= i.phone %></td>
     <td><%= i.gender %></td>
-    <td><%= link_to "Add friend", friendships_path(:user_id => current_user.id,:friend_id => i.id), method: :post %></td>
-    <td><%= link_to "Delete user", i, method: :delete, data:{confirm: "Do you want realy delete this user?" } %></td>
-    <td>Rating: <%= i.votes_count %>, <%= link_to "+", upvote_user_path(i) %> </td>
+    <td><%= link_to "Add friend", friendships_path(:user_id => current_user.id,:friend_id => i.id), method: :post, class: "btn btn-large btn-primary" %></td>
+    <td><%= link_to "Delete user", i, method: :delete, data:{confirm: "Do you want realy delete this user?" }, class: "btn btn-large btn-danger" %></td>
+    <td>Rating: <%= i.votes_count %> <%= link_to "+", upvote_user_path(i) , class: "btn btn-large btn-info" %> </td>
   </tr>
 
       <% end %>

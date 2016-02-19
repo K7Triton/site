@@ -31,11 +31,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update_attributes(user_params)
+    @user.update_attributes(user_params_update)
     if @user.errors.empty?
-      redirect_to user_path(@user)
+      redirect_to @user
     else
-      render "edit"
+      render "show"
     end
   end
 
@@ -53,6 +53,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :email, :phone, :gender, :password, :password_confirmation, :image)
+  end
+
+  def user_params_update
+    params.require(:user).permit(:username, :email, :phone, :gender)
   end
 
   def find_item
